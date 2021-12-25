@@ -1,0 +1,1 @@
+The inp_tgt object is stored here, as well as the training lists and the validation set.
