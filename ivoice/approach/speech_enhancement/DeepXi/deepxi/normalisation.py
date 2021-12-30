@@ -125,7 +125,7 @@ class SequenceLayerNorm(tf.keras.layers.Layer):
 		"""
 		"""
 		if not self.mask_zero:
-	    	return None
+			return None
 		return tf.not_equal(inputs, 0)
   
 
