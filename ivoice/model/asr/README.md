@@ -1,0 +1,1 @@
+### 该文件夹下的模型结构copy自[wenet](https://github.com/wenet-e2e/wenet/tree/main/wenet/transformer)
