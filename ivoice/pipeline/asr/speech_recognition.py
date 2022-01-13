@@ -5,6 +5,7 @@ import sys
 from ivoice.io.audio import AudioIO
 from ivoice.model.asr.asr_model import init_asr_model
 from ivoice.feature.fbank_extractor import FBankFeatureExtractor
+from ivoice.pipeline.asr.punctuation_restoration import PunctuationRestoration
 from ivoice.util.config import override_config
 from ivoice.util.checkpoint import load_checkpoint
 from pyannote.core.segment import Segment

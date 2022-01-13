@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package ivoice;
+
+service IVoiceToolkit {
+  rpc transcribeAudioFile (TranscribeRequest) returns (stream SegmentResult) {}
+}
+
+message Result {
+  string segment = 1;
+  string label = 2;
+  string word = 3;
+}
+
+message Segment {
+  float start = 1;
+  float end = 2;
+}
+
+message TranscribeRequest {
+  string remoteFilePath = 1;
+}
+
+
+message SegmentResult {
+  Segment segment = 1;
+  int32 label = 2;
+  string word = 3;
+}
