@@ -30,9 +30,31 @@ def DeepXi(input_dir, output_dir, version="mhanet-1.1c", gain="mmse-lsa"):
     os.system('./run.sh VER=%s INFER=1 GAIN=%s INPUT_DIR=%s OUTPUT_DIR=%s' % (version, gain, input_dir, output_dir))
 
 
-DeepXi(
-    input_dir=os.path.abspath("../data/DeepXi/input"),
-    output_dir=os.path.abspath("../data/DeepXi/output"),
-    version="mhanet-1.1c",
-    gain="mmse-lsa"
+def spectral_subtraction(input_dir, output_dir):
+    """
+
+    Args:
+        input_dir: string
+        output_dir: string
+    Returns:
+
+    """
+    VIRTUAL_ENV = os.path.abspath("../approach/speech_enhancement/SpectralSubtraction/venv")
+
+    os.environ['PATH'] = VIRTUAL_ENV + "/bin:" + os.environ['PATH']
+    os.chdir('../approach/speech_enhancement/SpectralSubtraction')
+    os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
+
+
+# DeepXi(
+#     input_dir=os.path.abspath("../data/input"),
+#     output_dir=os.path.abspath("../data/output/DeepXi"),
+#     version="mhanet-1.1c",
+#     gain="mmse-lsa"
+# )
+
+
+spectral_subtraction(
+    input_dir=os.path.abspath("../data/input"),
+    output_dir=os.path.abspath("../data/output/SpectralSubtraction"),
 )
