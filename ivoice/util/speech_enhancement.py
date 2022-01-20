@@ -46,6 +46,22 @@ def spectral_subtraction(input_dir, output_dir):
     os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
 
 
+def wiener_filter(input_dir, output_dir):
+    """
+
+    Args:
+        input_dir: string
+        output_dir: string
+    Returns:
+
+    """
+    VIRTUAL_ENV = os.path.abspath("../approach/speech_enhancement/WienerFilter/venv")
+
+    os.environ['PATH'] = VIRTUAL_ENV + "/bin:" + os.environ['PATH']
+    os.chdir('../approach/speech_enhancement/WienerFilter')
+    os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
+
+
 # DeepXi(
 #     input_dir=os.path.abspath("../data/input"),
 #     output_dir=os.path.abspath("../data/output/DeepXi"),
@@ -54,7 +70,13 @@ def spectral_subtraction(input_dir, output_dir):
 # )
 
 
-spectral_subtraction(
+# spectral_subtraction(
+#     input_dir=os.path.abspath("../data/input"),
+#     output_dir=os.path.abspath("../data/output/SpectralSubtraction"),
+# )
+
+
+wiener_filter(
     input_dir=os.path.abspath("../data/input"),
-    output_dir=os.path.abspath("../data/output/SpectralSubtraction"),
+    output_dir=os.path.abspath("../data/output/WienerFilter"),
 )
