@@ -62,6 +62,22 @@ def wiener_filter(input_dir, output_dir):
     os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
 
 
+def MMSE(input_dir, output_dir):
+    """
+
+    Args:
+        input_dir: string
+        output_dir: string
+    Returns:
+
+    """
+    VIRTUAL_ENV = os.path.abspath("../approach/speech_enhancement/MMSE/venv")
+
+    os.environ['PATH'] = VIRTUAL_ENV + "/bin:" + os.environ['PATH']
+    os.chdir('../approach/speech_enhancement/MMSE')
+    os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
+
+
 # DeepXi(
 #     input_dir=os.path.abspath("../data/input"),
 #     output_dir=os.path.abspath("../data/output/DeepXi"),
@@ -76,7 +92,13 @@ def wiener_filter(input_dir, output_dir):
 # )
 
 
-wiener_filter(
+# wiener_filter(
+#     input_dir=os.path.abspath("../data/input"),
+#     output_dir=os.path.abspath("../data/output/WienerFilter"),
+# )
+
+
+MMSE(
     input_dir=os.path.abspath("../data/input"),
-    output_dir=os.path.abspath("../data/output/WienerFilter"),
+    output_dir=os.path.abspath("../data/output/MMSE"),
 )
