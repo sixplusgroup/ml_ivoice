@@ -78,6 +78,22 @@ def MMSE(input_dir, output_dir):
     os.system('python main.py --input_dir=%s --output_dir=%s' % (input_dir, output_dir))
 
 
+def DB_AIAT(input_dir, output_dir):
+    """
+
+    Args:
+        input_dir: string
+        output_dir: string
+    Returns:
+
+    """
+    VIRTUAL_ENV = os.path.abspath("../approach/speech_enhancement/DB-AIAT/venv")
+
+    os.environ['PATH'] = VIRTUAL_ENV + "/bin:" + os.environ['PATH']
+    os.chdir('../approach/speech_enhancement/DB-AIAT')
+    os.system('python enhance.py --mix_file_path=%s --esti_file_path=%s' % (input_dir, output_dir))
+
+
 # DeepXi(
 #     input_dir=os.path.abspath("../data/input"),
 #     output_dir=os.path.abspath("../data/output/DeepXi"),
@@ -98,7 +114,13 @@ def MMSE(input_dir, output_dir):
 # )
 
 
-MMSE(
+# MMSE(
+#     input_dir=os.path.abspath("../data/input"),
+#     output_dir=os.path.abspath("../data/output/MMSE"),
+# )
+
+
+DB_AIAT(
     input_dir=os.path.abspath("../data/input"),
-    output_dir=os.path.abspath("../data/output/MMSE"),
+    output_dir=os.path.abspath("../data/output/DB-AIAT"),
 )
