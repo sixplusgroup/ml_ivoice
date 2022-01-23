@@ -17,7 +17,12 @@ class IVoiceToolkitStub(object):
         self.transcribeAudioFile = channel.unary_stream(
                 '/ivoice.IVoiceToolkit/transcribeAudioFile',
                 request_serializer=ivoice__pb2.TranscribeRequest.SerializeToString,
-                response_deserializer=ivoice__pb2.SegmentResult.FromString,
+                response_deserializer=ivoice__pb2.TranscribeResponse.FromString,
+                )
+        self.extractKeywords = channel.unary_unary(
+                '/ivoice.IVoiceToolkit/extractKeywords',
+                request_serializer=ivoice__pb2.ResultContent.SerializeToString,
+                response_deserializer=ivoice__pb2.ResultKeywords.FromString,
                 )
 
 
@@ -30,13 +35,24 @@ class IVoiceToolkitServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def extractKeywords(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IVoiceToolkitServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'transcribeAudioFile': grpc.unary_stream_rpc_method_handler(
                     servicer.transcribeAudioFile,
                     request_deserializer=ivoice__pb2.TranscribeRequest.FromString,
-                    response_serializer=ivoice__pb2.SegmentResult.SerializeToString,
+                    response_serializer=ivoice__pb2.TranscribeResponse.SerializeToString,
+            ),
+            'extractKeywords': grpc.unary_unary_rpc_method_handler(
+                    servicer.extractKeywords,
+                    request_deserializer=ivoice__pb2.ResultContent.FromString,
+                    response_serializer=ivoice__pb2.ResultKeywords.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -61,6 +77,23 @@ class IVoiceToolkit(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/ivoice.IVoiceToolkit/transcribeAudioFile',
             ivoice__pb2.TranscribeRequest.SerializeToString,
-            ivoice__pb2.SegmentResult.FromString,
+            ivoice__pb2.TranscribeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def extractKeywords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/ivoice.IVoiceToolkit/extractKeywords',
+            ivoice__pb2.ResultContent.SerializeToString,
+            ivoice__pb2.ResultKeywords.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

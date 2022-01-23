@@ -1,5 +1,0 @@
-tensorflow
-tensorflow-addons
-tqdm
-pysoundfile
-scipy

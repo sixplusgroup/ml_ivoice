@@ -3,9 +3,7 @@ from ivoice.pipeline.asr.punctuation_restoration import PunctuationRestoration
 from ivoice.pipeline.sd.speaker_diarization import SpeakerDiarization
 from ivoice.util.path import get_project_dir
 from ivoice.util.constant import DEFAULT_CHINESE_TAG_PUNCTUATOR_MAP
-
 import os
-
 
 def transcribe(audio_file):
   # 以下三个文件以及global_cmvn需要从
@@ -24,16 +22,11 @@ def transcribe(audio_file):
   pr = PunctuationRestoration(tag2punctuator=DEFAULT_CHINESE_TAG_PUNCTUATOR_MAP)
 
   segments_label_composed = sd(audio_file, p_val=0.4)
-  # with open('result/temp.txt', 'w', encoding='UTF-8') as f:
   for composed in segments_label_composed:
     segment = composed['segment']
     word = asr(audio_file, segment)
     word_with_punc, _ = pr.punctuation([word])
 
-    # f.write('{} {} {}\n'.format(segment, label, word))
     composed['word'] = word_with_punc[0]
 
   return segments_label_composed
-
-
-result = transcribe('../../../samples/siri.wav')

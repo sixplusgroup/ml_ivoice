@@ -19,38 +19,31 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0civoice.proto\x12\x06ivoice\"6\n\x06Result\x12\x0f\n\x07segment\x18\x01 \x01(\t\x12\r\n\x05label\x18\x02 \x01(\t\x12\x0c\n\x04word\x18\x03 \x01(\t\"%\n\x07Segment\x12\r\n\x05start\x18\x01 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x02\"+\n\x11TranscribeRequest\x12\x16\n\x0eremoteFilePath\x18\x01 \x01(\t\"N\n\rSegmentResult\x12 \n\x07segment\x18\x01 \x01(\x0b\x32\x0f.ivoice.Segment\x12\r\n\x05label\x18\x02 \x01(\x05\x12\x0c\n\x04word\x18\x03 \x01(\t2\\\n\rIVoiceToolkit\x12K\n\x13transcribeAudioFile\x12\x19.ivoice.TranscribeRequest\x1a\x15.ivoice.SegmentResult\"\x00\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0civoice.proto\x12\x06ivoice\"/\n\rResultContent\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\x05\"\"\n\x0eResultKeywords\x12\x10\n\x08keywords\x18\x01 \x01(\t\"%\n\x07Segment\x12\r\n\x05start\x18\x01 \x01(\x02\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x02\"+\n\x11TranscribeRequest\x12\x16\n\x0eremoteFilePath\x18\x01 \x01(\t\"S\n\x12TranscribeResponse\x12 \n\x07segment\x18\x01 \x01(\x0b\x32\x0f.ivoice.Segment\x12\r\n\x05label\x18\x02 \x01(\x05\x12\x0c\n\x04word\x18\x03 \x01(\t2\xa5\x01\n\rIVoiceToolkit\x12P\n\x13transcribeAudioFile\x12\x19.ivoice.TranscribeRequest\x1a\x1a.ivoice.TranscribeResponse\"\x00\x30\x01\x12\x42\n\x0f\x65xtractKeywords\x12\x15.ivoice.ResultContent\x1a\x16.ivoice.ResultKeywords\"\x00\x62\x06proto3'
 )
 
 
 
 
-_RESULT = _descriptor.Descriptor(
-  name='Result',
-  full_name='ivoice.Result',
+_RESULTCONTENT = _descriptor.Descriptor(
+  name='ResultContent',
+  full_name='ivoice.ResultContent',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='segment', full_name='ivoice.Result.segment', index=0,
+      name='content', full_name='ivoice.ResultContent.content', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='label', full_name='ivoice.Result.label', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='word', full_name='ivoice.Result.word', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='count', full_name='ivoice.ResultContent.count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -67,7 +60,39 @@ _RESULT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=78,
+  serialized_end=71,
+)
+
+
+_RESULTKEYWORDS = _descriptor.Descriptor(
+  name='ResultKeywords',
+  full_name='ivoice.ResultKeywords',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keywords', full_name='ivoice.ResultKeywords.keywords', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=73,
+  serialized_end=107,
 )
 
 
@@ -105,8 +130,8 @@ _SEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=80,
-  serialized_end=117,
+  serialized_start=109,
+  serialized_end=146,
 )
 
 
@@ -137,35 +162,35 @@ _TRANSCRIBEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=119,
-  serialized_end=162,
+  serialized_start=148,
+  serialized_end=191,
 )
 
 
-_SEGMENTRESULT = _descriptor.Descriptor(
-  name='SegmentResult',
-  full_name='ivoice.SegmentResult',
+_TRANSCRIBERESPONSE = _descriptor.Descriptor(
+  name='TranscribeResponse',
+  full_name='ivoice.TranscribeResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='segment', full_name='ivoice.SegmentResult.segment', index=0,
+      name='segment', full_name='ivoice.TranscribeResponse.segment', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='label', full_name='ivoice.SegmentResult.label', index=1,
+      name='label', full_name='ivoice.TranscribeResponse.label', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='word', full_name='ivoice.SegmentResult.word', index=2,
+      name='word', full_name='ivoice.TranscribeResponse.word', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -183,23 +208,31 @@ _SEGMENTRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=242,
+  serialized_start=193,
+  serialized_end=276,
 )
 
-_SEGMENTRESULT.fields_by_name['segment'].message_type = _SEGMENT
-DESCRIPTOR.message_types_by_name['Result'] = _RESULT
+_TRANSCRIBERESPONSE.fields_by_name['segment'].message_type = _SEGMENT
+DESCRIPTOR.message_types_by_name['ResultContent'] = _RESULTCONTENT
+DESCRIPTOR.message_types_by_name['ResultKeywords'] = _RESULTKEYWORDS
 DESCRIPTOR.message_types_by_name['Segment'] = _SEGMENT
 DESCRIPTOR.message_types_by_name['TranscribeRequest'] = _TRANSCRIBEREQUEST
-DESCRIPTOR.message_types_by_name['SegmentResult'] = _SEGMENTRESULT
+DESCRIPTOR.message_types_by_name['TranscribeResponse'] = _TRANSCRIBERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Result = _reflection.GeneratedProtocolMessageType('Result', (_message.Message,), {
-  'DESCRIPTOR' : _RESULT,
+ResultContent = _reflection.GeneratedProtocolMessageType('ResultContent', (_message.Message,), {
+  'DESCRIPTOR' : _RESULTCONTENT,
   '__module__' : 'ivoice_pb2'
-  # @@protoc_insertion_point(class_scope:ivoice.Result)
+  # @@protoc_insertion_point(class_scope:ivoice.ResultContent)
   })
-_sym_db.RegisterMessage(Result)
+_sym_db.RegisterMessage(ResultContent)
+
+ResultKeywords = _reflection.GeneratedProtocolMessageType('ResultKeywords', (_message.Message,), {
+  'DESCRIPTOR' : _RESULTKEYWORDS,
+  '__module__' : 'ivoice_pb2'
+  # @@protoc_insertion_point(class_scope:ivoice.ResultKeywords)
+  })
+_sym_db.RegisterMessage(ResultKeywords)
 
 Segment = _reflection.GeneratedProtocolMessageType('Segment', (_message.Message,), {
   'DESCRIPTOR' : _SEGMENT,
@@ -215,12 +248,12 @@ TranscribeRequest = _reflection.GeneratedProtocolMessageType('TranscribeRequest'
   })
 _sym_db.RegisterMessage(TranscribeRequest)
 
-SegmentResult = _reflection.GeneratedProtocolMessageType('SegmentResult', (_message.Message,), {
-  'DESCRIPTOR' : _SEGMENTRESULT,
+TranscribeResponse = _reflection.GeneratedProtocolMessageType('TranscribeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSCRIBERESPONSE,
   '__module__' : 'ivoice_pb2'
-  # @@protoc_insertion_point(class_scope:ivoice.SegmentResult)
+  # @@protoc_insertion_point(class_scope:ivoice.TranscribeResponse)
   })
-_sym_db.RegisterMessage(SegmentResult)
+_sym_db.RegisterMessage(TranscribeResponse)
 
 
 
@@ -231,8 +264,8 @@ _IVOICETOOLKIT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=244,
-  serialized_end=336,
+  serialized_start=279,
+  serialized_end=444,
   methods=[
   _descriptor.MethodDescriptor(
     name='transcribeAudioFile',
@@ -240,7 +273,17 @@ _IVOICETOOLKIT = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_TRANSCRIBEREQUEST,
-    output_type=_SEGMENTRESULT,
+    output_type=_TRANSCRIBERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='extractKeywords',
+    full_name='ivoice.IVoiceToolkit.extractKeywords',
+    index=1,
+    containing_service=None,
+    input_type=_RESULTCONTENT,
+    output_type=_RESULTKEYWORDS,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

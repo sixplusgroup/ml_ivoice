@@ -202,9 +202,3 @@ class PunctuationRestoration:
       samples.append(sample_marks.tolist())
 
     return np.array(samples)
-
-  def __call__(self, word: str):
-    input = self.tokenizer(word)
-    # return input
-    result = self.model(**input)
-    return result

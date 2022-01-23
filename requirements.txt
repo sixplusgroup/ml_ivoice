@@ -1,9 +1,15 @@
+grpc==1.0.0
+grpcio==1.43.0
+jieba==0.42.1
 numpy==1.21.2
 pesq==0.0.3
+plane==0.2.1
+protobuf==3.19.3
 pyannote.pipeline==1.5.2
 pystoi==0.3.3
 PyYAML==6.0
 scipy==1.7.1
+snownlp==0.12.3
 SoundFile==0.10.3.post1
 speechbrain==0.5.11
 tensorflow==2.6.0

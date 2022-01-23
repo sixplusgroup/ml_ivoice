@@ -3,13 +3,17 @@ syntax = "proto3";
 package ivoice;
 
 service IVoiceToolkit {
-  rpc transcribeAudioFile (TranscribeRequest) returns (stream SegmentResult) {}
+  rpc transcribeAudioFile (TranscribeRequest) returns (stream TranscribeResponse) {}
+  rpc extractKeywords (ResultContent) returns (ResultKeywords) {}
 }
 
-message Result {
-  string segment = 1;
-  string label = 2;
-  string word = 3;
+message ResultContent {
+  string content = 1;
+  int32 count = 2;
+}
+
+message ResultKeywords {
+  string keywords = 1;
 }
 
 message Segment {
@@ -22,7 +26,7 @@ message TranscribeRequest {
 }
 
 
-message SegmentResult {
+message TranscribeResponse {
   Segment segment = 1;
   int32 label = 2;
   string word = 3;
