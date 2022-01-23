@@ -32,8 +32,8 @@ DEFAULT_CHINESE_TAG_PUNCTUATOR_MAP = {
     NORMAL_TOKEN_TAG: ("", False),
     "C_COMMA": ("，", False),
     "C_PERIOD": ("。", True),
-    "C_QUESTIONMARK": ("? ", True),
-    "C_EXLAMATIONMARK": ("! ", True),
+    "C_QUESTIONMARK": ("？", True),
+    "C_EXLAMATIONMARK": ("！", True),
     "C_COLON": ("：", True),
     "C_DUNHAO": ("、", False),
 }

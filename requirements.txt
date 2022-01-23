@@ -1,22 +1,11 @@
-grpc==1.0.0
 grpcio==1.43.0
 jieba==0.42.1
-numpy==1.21.2
-pesq==0.0.3
 plane==0.2.1
-protobuf==3.19.3
-pyannote.pipeline==1.5.2
-pystoi==0.3.3
-PyYAML==6.0
-scipy==1.7.1
-snownlp==0.12.3
-SoundFile==0.10.3.post1
+pyannote.audio @ https://github.com/pyannote/pyannote-audio/archive/develop.zip
 speechbrain==0.5.11
-tensorflow==2.6.0
-tensorflow_addons==0.15.0
 torch==1.10.1
-torchaudio==0.10.0
-tqdm==4.62.3
-transformers==4.15.0
+torchaudio==0.10.1
 typeguard==2.13.0
-~orch==1.9.1
+transformers==4.15.0
+pytest==6.2.5
+torchmetrics==0.6.2
