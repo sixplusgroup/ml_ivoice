@@ -28,11 +28,9 @@ def set_ftp_client(config: Dict):
 def download_file(ftp: FTP, remote_path, local_path):
   buffer_size = 1024
   with open(local_path, 'wb') as file:
-    print('start downloading file')
+    print('start download file')
     actual_remote_path = '/'.join(remote_path)
     ftp.retrbinary('RETR ' + actual_remote_path, file.write, buffer_size)
-    # ftp.retrbinary('RETR ' + 'upload/siri-rc-upload-1642410971426-2.wav', file.write, buffer_size)
-    # ftp.retrbinary('RETR ' + 'ivoicesiri.wav', file.write, buffer_size)
     file.close()
     ftp.close()
 
@@ -49,10 +47,11 @@ def format_path(file_path: str):
 
 def preprocess_path(file_path: List[str]):
   current_path = os.path.join('..', 'temp')
+  if not os.path.exists(current_path):
+    os.mkdir(current_path)
   if len(file_path) > 1:
     for path in file_path[:-1]:
       current_path = os.path.join(current_path, path)
-      print(os.path.exists(current_path))
       if not os.path.exists(current_path):
         os.mkdir(current_path)
   return os.path.join(current_path, file_path[-1])
@@ -60,7 +59,7 @@ def preprocess_path(file_path: List[str]):
 
 class AudioTranscribeServicer(ivoice_pb2_grpc.IVoiceToolkitServicer):
   def transcribeAudioFile(self, request, context):
-    print('start transcribe')
+    print('task begin')
     config = read_yaml_conf()
     ftp = set_ftp_client(config)
     remote_path = format_path(request.remoteFilePath)
@@ -68,6 +67,7 @@ class AudioTranscribeServicer(ivoice_pb2_grpc.IVoiceToolkitServicer):
     print(os.path.exists(local_path))
     if not os.path.exists(local_path):
       download_file(ftp, remote_path, local_path)
+    print('start transcribe')
     result = transcribe(local_path)
     for pair in result:
       segment_result = ivoice_pb2.TranscribeResponse(
