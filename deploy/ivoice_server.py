@@ -60,6 +60,7 @@ def preprocess_path(file_path: List[str]):
 
 class AudioTranscribeServicer(ivoice_pb2_grpc.IVoiceToolkitServicer):
   def transcribeAudioFile(self, request, context):
+    print('start transcribe')
     config = read_yaml_conf()
     ftp = set_ftp_client(config)
     remote_path = format_path(request.remoteFilePath)
