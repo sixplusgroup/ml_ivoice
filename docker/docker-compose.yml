@@ -2,18 +2,18 @@ version: '3.8'
 services:
   ml_ivoice:
     build:
-      context: ../../
-      dockerfile: ml_ivoice/Dockerfile
+      context: ../
+      dockerfile: docker/ml_ivoice/Dockerfile
     container_name: ml_ivoice_server
     ports:
       - "9000:9000"
-  nginx:
+  nginx_server:
     image: nginx:latest
-    container_name: nginx
+    container_name: nginx_server
     ports:
       - "9010:9010"
     depends_on:
       - ml_ivoice
-    volumns:
+    volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 

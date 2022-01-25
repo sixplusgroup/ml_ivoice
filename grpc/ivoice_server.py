@@ -10,7 +10,7 @@ import ivoice_pb2
 import grpc
 import json
 
-def read_yaml_conf(config_path = './conf.yaml'):
+def read_yaml_conf(config_path = './grpc/conf.yaml'):
   with open(config_path, 'r', encoding='UTF-8') as config_file:
     config = yaml.load(config_file, Loader=yaml.FullLoader)
   print('config ', config);
@@ -46,7 +46,7 @@ def format_path(file_path: str):
 
 
 def preprocess_path(file_path: List[str]):
-  current_path = os.path.join('..', 'temp')
+  current_path = os.path.join('.', 'temp')
   if not os.path.exists(current_path):
     os.mkdir(current_path)
   if len(file_path) > 1:

@@ -1,8 +1,8 @@
 FROM pre_env:latest
 
-ADD ./ml_ivoice /code
+ADD . /code
 
-ENV PYTHONPATH "${PYTHONPATH}:/home/doomsdor/dockerify/ml_ivoice"
+ENV PYTHONPATH "${PYTHONPATH}:/home/doomsdor/ml_ivoice"
 
 WORKDIR /code
 
