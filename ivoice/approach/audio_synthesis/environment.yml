@@ -1,0 +1,57 @@
+name: deepbach_pytorch
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - blas=1.0=mkl
+  - ca-certificates=2018.03.07=0
+  - certifi=2018.11.29=py36_0
+  - cffi=1.11.5
+  - click=7.0=py36_0
+  - freetype=2.9.1
+  - intel-openmp=2019.1=144
+  - jpeg=9b
+  - libffi=3.2.1
+  - libpng=1.6.35
+  - libtiff=4.0.9
+  - mkl=2019.1=144
+  - mkl_fft=1.0.6
+  - mkl_random=1.0.2
+  - ninja=1.8.2
+  - numpy=1.15.4
+  - numpy-base=1.15.4
+  - olefile=0.46=py36_0
+  - openssl=1.1.1a
+  - pillow=5.3.0
+  - pip=18.1=py36_0
+  - pycparser=2.19=py36_0
+  - python=3.6.8
+  - setuptools=40.6.3=py36_0
+  - six=1.12.0=py36_0
+  - sqlite=3.26.0
+  - tk=8.6.8
+  - wheel=0.32.3=py36_0
+  - xz=5.2.4
+  - zlib=1.2.11
+  - pytorch=1.0.0
+  - cuda100
+  - torchvision=0.2.1=py_2
+  - pip:
+    - decorator==4.3.0
+    - flask==1.0.2
+    - flask-cors==3.0.7
+    - itsdangerous==1.1.0
+    - jinja2==2.10
+    - markupsafe==1.1.0
+    - music21==5.5.0
+    - torch==1.0.0
+    - tqdm==4.29.0
+    - werkzeug==0.14.1
+    #- libedit==3.1.20170329
+    #- libgcc-ng==8.2.0
+    #- libgfortran-ng==7.3.0
+    #- libstdcxx-ng==8.2.0
+    #- ncurses==6.1
+    #- readline==7.0
+prefix: D:\Programming\miniconda3\envs\deepbach_pytorch
+
